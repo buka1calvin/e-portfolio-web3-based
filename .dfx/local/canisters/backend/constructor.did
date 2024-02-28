@@ -1,0 +1,12 @@
+service: () -> {
+    GetInstitution: (text) -> (record {id:text; title:text; password:text; description:text; email:text; image:vec nat8}) query;
+    RetrieveAllInstitutions: () -> (vec record {id:text; title:text; password:text; description:text; email:text; image:vec nat8}) query;
+    getCertificates: () -> (vec record {id:text; isued_at:text; description:text; end_date:text; created_by:principal; start_date:text; profile_id:text}) query;
+    getCertificatesPerProfileId: (text) -> (record {id:text; isued_at:text; description:text; end_date:text; created_by:principal; start_date:text; profile_id:text}) query;
+    getProfile: (text) -> (record {id:text; firstname:text; country:text; created_at:nat64; created_by:principal; email:text; middlename:text; address:text; gender:text; image:vec nat8; date_of_birth:text; phone_number:text; lastname:text}) query;
+    getProfiles: () -> (vec record {id:text; firstname:text; country:text; created_at:nat64; created_by:principal; email:text; middlename:text; address:text; gender:text; image:vec nat8; date_of_birth:text; phone_number:text; lastname:text}) query;
+    newCertificate: (record {isued_at:text; description:text; end_date:text; start_date:text; profile_id:text}) -> (record {id:text; isued_at:text; description:text; end_date:text; created_by:principal; start_date:text; profile_id:text});
+    newExperience: (record {end_date:text; start_date:text; short_note:text; position:text; profile_id:text}) -> (record {end_date:text; created_by:principal; start_date:text; short_note:text; position:text; profile_id:text});
+    newInstitution: (record {title:text; password:text; description:text; email:text; image:vec nat8}) -> (record {id:text; title:text; password:text; description:text; email:text; image:vec nat8});
+    newProfile: (record {firstname:text; country:text; email:text; middlename:text; address:text; gender:text; image:vec nat8; date_of_birth:text; phone_number:text; lastname:text}) -> (record {id:text; firstname:text; country:text; created_at:nat64; created_by:principal; email:text; middlename:text; address:text; gender:text; image:vec nat8; date_of_birth:text; phone_number:text; lastname:text});
+}
